@@ -22,7 +22,7 @@ export let volume = {
     ">20" : 40/100,
     getVolume : function( reps ) {
 
-        if (!this.reps) {
+        if (!this[reps]) {
             return false;
         }
 

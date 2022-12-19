@@ -4,9 +4,11 @@
     box-sizing: border-box;
 }
 
-.bordo {
-    border: 1px solid black;
+.error,
+.error:focus {
+    border: 2px solid rgb(201, 5, 5);
 }
+
 
 .border-shadow {
     padding: 15px;

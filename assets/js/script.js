@@ -20,10 +20,18 @@ form.onsubmit = function (e){
 
     let maximal = findMaximal( +form.reps.value, +form.weight.value );
 
-    let vol = volume.getVolume(+form.repsToDo.value);
+    let repsToDo = +form.repsToDo.value;
+
+    if (repsToDo > 20) {
+        repsToDo = ">20";
+    }
+
+    let vol = volume.getVolume(repsToDo);
 
     if ( !vol ) {
-        alert("Valore non corretto");
+        alert("Reps da scheda non corretto");
+        form.repsToDo.focus();
+        return false;
     }
 
     let finalWeight = maximal * vol;

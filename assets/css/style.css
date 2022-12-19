@@ -22,6 +22,18 @@
     height: 1000px;
 }
 
+#calcolator {
+    margin: 20px auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*------------------Form-------------------*/
+
+
 #data {
     margin-top: 20px;
 }
@@ -30,6 +42,46 @@
     margin-bottom: 20px;
 }
 
+.form-input input {
+    padding: 2px 6px;
+}
+
 #add {
     padding: 5px;
 }
+
+/*------------------Table------------------*/
+
+#workout-table {
+    width: 100%;
+    max-width: 300px;
+    height: 240px;
+    margin-top: 20px;
+    display: block;
+    overflow-x: auto;
+    border-spacing: 0;
+}
+
+#workout-table tbody {
+  white-space: nowrap;
+}
+
+#workout-table th,
+#workout-table td {
+  border: 1px solid rgb(140, 140, 140);
+  padding: 5px 10px;
+  border-top-width: 0;
+  border-left-width: 0;
+  text-align: center;
+}
+
+#workout-table th:last-child,
+#workout-table td:last-child {
+  border-right-width: 0;
+}
+
+#workout-table tr:last-child td {
+  border-bottom-width: 0;
+}
+
+/*------------------Table------------------*/

@@ -7,31 +7,35 @@
     <title>Workout Volume</title>
 </head>
 <body>
-
     <div id="page">
-        <h2>Calcolate your volume workout</h2>
+        <div id="calcolator">
+            <h2>Calcolate your volume workout</h2>
 
-        <form id="data" name="data">
+            <form id="data" name="data" class="border-shadow">
 
-            <div class="form-input">
-                <label for="exercise">Nome esercizio</label>
-                <input type="text" name="exercise" id="exercise">
-            </div>
+                <div class="form-input">
+                    <label for="exercise">Nome esercizio</label>
+                    <input type="text" name="exercise" id="exercise" value="Panca piana">
+                </div>
 
-            <div class="form-input">
-                <label for="reps">Nr ripetizioni</label>
-                <input type="text" name="reps" id="reps">
-            </div>
+                <div class="form-input">
+                    <label for="reps">Nr ripetizioni</label>
+                    <input type="text" name="reps" id="reps" value="7">
+                </div>
 
-            <div class="form-input">
-                <label for="weight">Carico utilizzato</label>
-                <input type="text" name="weight" id="weight">
-            </div>
-            <input type="submit" value="Add" id="add">
+                <div class="form-input">
+                    <label for="weight">Carico utilizzato (kg)</label>
+                    <input type="text" name="weight" id="weight" value="70">
+                </div>
+                <input type="submit" value="Add" id="add">
 
-        </form>
+            </form>
+
+            <table>
+                <tbody></tbody>
+            </table>
+        </div>
     </div>
-    
     <script src="./assets/js/script.js"></script>
 </body>
 </html>

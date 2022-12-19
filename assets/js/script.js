@@ -19,7 +19,7 @@ form.onsubmit = function (e){
     const table = document.body.querySelector("#workout-table");
 
     let maximal = findMaximal( +form.reps.value, +form.weight.value );
-    let vol = volume.getVolume(+form.reps.value);
+    let vol = volume.getVolume(+form.repsToDo.value);
 
     let finalWeight = maximal * vol;
 

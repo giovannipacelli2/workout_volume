@@ -18,12 +18,24 @@ form.onsubmit = function (e){
 
     const table = document.body.querySelector("#workout-table");
 
-    insertTable( table, form.exercise.value, form.weight.value );
+    let maximal = findMaximal( +form.reps.value, +form.weight.value );
+    let vol = volume.getVolume(+form.reps.value);
+
+    let finalWeight = maximal * vol;
+
+    insertTable( table, form.exercise.value, finalWeight.toFixed(1) );
 
 
     return false;
 
 };
+
+function findMaximal( reps, weight) {
+    let minMaximal = weight/(1.0278-(0.0278*reps));
+    let maxMaximal = weight*(1+(0.033*reps));
+
+    return (minMaximal + maxMaximal)/2;
+}
 
 
 

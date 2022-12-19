@@ -19,5 +19,8 @@ export let volume = {
     "18" : 55/100,
     "19" : 55/100,
     "20" : 50/100,
-    ">20" : 40/100
+    ">20" : 40/100,
+    getVolume : function( reps ) {
+        return this[reps];
+    }
 }

@@ -65,7 +65,7 @@
 }
 
 #workout-table tbody {
-  white-space: nowrap;
+  white-space: wrap;
 }
 
 #workout-table th,

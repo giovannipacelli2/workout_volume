@@ -4,8 +4,7 @@
     box-sizing: border-box;
 }
 
-.error,
-.error:focus {
+.error {
     border: 2px solid rgb(201, 5, 5);
 }
 
@@ -20,12 +19,11 @@
 }
 
 #page {
-    padding: 20px;
-    height: 1000px;
+    padding: 5px;
 }
 
 #calcolator {
-    margin: 20px auto;
+    margin: 35px auto;
 
     display: flex;
     flex-direction: column;
@@ -38,6 +36,8 @@
 
 #data {
     margin-top: 20px;
+    width: 100%;
+    min-width: 215px;
 }
 
 .form-input {
@@ -50,6 +50,7 @@
 
 #add {
     padding: 5px;
+    align-self: flex-start;
 }
 
 /*------------------Table------------------*/
@@ -90,6 +91,7 @@
 /*------------------Table------------------*/
 
 @media only screen and (max-width: 460px) {
+
     #workout-table {
         max-width: 300px;
     }
@@ -100,4 +102,14 @@
         min-width: 40px;
     }
 
+}
+
+@media only screen and (min-width: 500px) {
+
+    #data {
+        width: 500px;
+    }
+    .border-shadow {
+        padding: 15px 60px;
+    }
 }

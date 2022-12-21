@@ -8,19 +8,27 @@ import {volume} from '../module/volume.js'
 
 form.onsubmit = function (e){
 
-    if ( !firstTime ) {
-        const table = "<table id='workout-table'><thead><tr><th>Nome esercizio</th><th>Carico da utilizzare</th></tr></thead><tbody id='body'></tbody></table>";
+    e.preventDefault();
 
-        form.insertAdjacentHTML('afterend', table);
-
-        firstTime = true;
+    let inputs = form.querySelectorAll("#data input");
+    
+    for ( let input of inputs) {
+        if ( input.value == "" ){
+            alert("Compilare tutti i campi!");
+            return;
+        }
     }
 
-    const table = document.body.querySelector("#workout-table");
-
-    let maximal = findMaximal( +form.reps.value, +form.weight.value );
-
+    let reps = +form.reps.value;
+    let weight = +form.weight.value;
     let repsToDo = +form.repsToDo.value;
+
+    if ( isNaN(reps) || isNaN(weight) ) {
+        alert("Compilare correttamente i campi!");
+        return;
+    }
+
+    let maximal = findMaximal( reps, weight );
 
     if (repsToDo > 20) {
         repsToDo = ">20";
@@ -31,15 +39,26 @@ form.onsubmit = function (e){
     if ( !vol ) {
         alert("Reps da scheda non corretto");
         form.repsToDo.focus();
-        return false;
+        return;
     }
+
+    if ( !firstTime ) {
+        const table = "<table id='workout-table'><thead><tr><th>Nome esercizio</th><th>Carico da utilizzare</th></tr></thead><tbody id='body'></tbody></table>";
+
+        form.insertAdjacentHTML('afterend', table);
+
+        firstTime = true;
+    }
+
+    const table = document.body.querySelector("#workout-table");
 
     let finalWeight = maximal * vol;
 
     insertTable( table, form.exercise.value, finalWeight.toFixed(1) );
 
+    clearInput(form);
 
-    return false;
+    return;
 
 };
 
@@ -58,4 +77,13 @@ function insertTable( table, name, weight ) {
 
     table.querySelector("#body").insertAdjacentHTML('beforeend', html);
 
+}
+
+function clearInput(form) {
+    let inputs = form.querySelectorAll("input");
+
+    for ( let input of inputs ) {
+        input.value = "";
+    }
+    inputs[0].focus();
 }

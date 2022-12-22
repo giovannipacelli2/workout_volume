@@ -37,7 +37,7 @@ function calculateWeight(e) {
         repsToDo = ">20";   /* Adattamento per numero di reps superiore a 20 */
     }
 
-    let vol = volume.getVolume(repsToDo);  /*calcolo del volume date le reps da fare*/
+    let vol = volume.getVolume(repsToDo);  /*Preleva il volume di allenamento date le reps da fare*/
 
     /* Controlla se il numero di reps rientra nel range giusto */
     if ( !vol ) {

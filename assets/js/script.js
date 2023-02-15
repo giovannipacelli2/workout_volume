@@ -85,9 +85,29 @@ function findMaximal( reps, weight) {
 
 function insertTable( table, name, weight ) {
 
-    let html = `<tr><td>${name}</td><td>${weight} kg</td>`;
+    let html = `
+                <tr>
+                    <td>${name}</td>
+                    <td class="f-center">
+                        <span style="width:80%;">${weight} kg</span>
+                        <span style="width:20%;" class="close">x</span>
+                    </td>
+                </tr>`;
 
-    table.querySelector("#body").insertAdjacentHTML('beforeend', html);
+    const tbody = table.querySelector("#body");
+    tbody.insertAdjacentHTML('beforeend', html);
+
+    const xButton = tbody.querySelector(".close");
+
+    xButton.onclick = (e)=> {
+
+        if ( !e.target.classList.contains("close") ) return;
+
+        let td = e.target.closest("TR");
+        td.remove();
+
+        xButton.onclick = null;
+    };
 
 }
 

@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+.f-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+}
+
 .error {
     border: 2px solid rgb(201, 5, 5);
 }
@@ -48,9 +55,20 @@
     padding: 2px 6px;
 }
 
-#add {
+.buttons-container {
+    display: flex;
+    justify-content: flex-start;
+} 
+.buttons-container .button {
+    margin-right: 10px;
+} 
+
+.buttons-container .button:last-of-type {
+    margin-right: 0px;
+} 
+
+.button {
     padding: 5px;
-    align-self: flex-start;
 }
 
 /*------------------Table------------------*/
@@ -86,6 +104,22 @@
 
 #workout-table tr:last-child td {
   border-bottom-width: 0;
+}
+
+.close {
+    padding: 2px;
+    max-width: 20px;
+
+    border: 1px solid;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    cursor: pointer;
 }
 
 /*------------------Table------------------*/

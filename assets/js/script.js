@@ -2,6 +2,16 @@
 
 let form = document.forms.data;
 
+let table = null;
+
+const clear = document.body.querySelector("#clear");
+clear.onclick = (e)=>{
+    if (table){
+        clear(table);
+    }
+    else return;
+};
+
 let firstTime = false;
 
 import {volume} from '../module/volume.js'
@@ -58,7 +68,7 @@ function calculateWeight(e) {
         firstTime = true;
     }
 
-    const table = document.body.querySelector("#workout-table");
+    table = document.body.querySelector("#workout-table");
 
     let finalWeight = maximal * vol;
 
@@ -116,4 +126,8 @@ function clearInput(form) {
         input.value = "";
     }
     inputs[0].focus();
+}
+
+function clear(elem) {
+    elem.remove();
 }

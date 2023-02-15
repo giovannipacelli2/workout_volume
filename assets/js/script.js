@@ -1,13 +1,15 @@
 'use strict'
 
 let form = document.forms.data;
+const tableHtml = `<table id='workout-table'><thead><tr><th>Nome esercizio</th><th>Carico da utilizzare</th></tr></thead><tbody id='body'></tbody></table>`;
 
 let table = null;
 
-const clear = document.body.querySelector("#clear");
-clear.onclick = (e)=>{
+let clear = document.body.querySelector("#clear");
+
+clear.onclick = ()=>{
     if (table){
-        clear(table);
+        clearTable(table);
     }
     else return;
 };
@@ -59,9 +61,7 @@ function calculateWeight(e) {
     /*Istruzione che deve essere richiamata solo la prima volta che si invia il form*/
 
     if ( !firstTime ) {
-        const table = "<table id='workout-table'><thead><tr><th>Nome esercizio</th><th>Carico da utilizzare</th></tr></thead><tbody id='body'></tbody></table>";
-
-        form.insertAdjacentHTML('afterend', table);
+        form.insertAdjacentHTML('afterend', tableHtml);
 
         /* Crea ed inserisce una table nel documento */
 
@@ -96,18 +96,20 @@ function findMaximal( reps, weight) {
 function insertTable( table, name, weight ) {
 
     let html = `
-                <tr>
-                    <td>${name}</td>
-                    <td class="f-center">
-                        <span style="width:80%;">${weight} kg</span>
-                        <span style="width:20%;" class="close">x</span>
-                    </td>
-                </tr>`;
+                <td>${name}</td>
+                <td class="f-center">
+                    <span style="width:80%;">${weight} kg</span>
+                    <span style="width:20%;" class="close">x</span>
+                </td>`;
 
-    const tbody = table.querySelector("#body");
-    tbody.insertAdjacentHTML('beforeend', html);
 
-    const xButton = tbody.querySelector(".close");
+    let tr = document.createElement("TR");
+    tr.innerHTML = html;
+
+    let tbody = table.querySelector("#body");
+    tbody.append(tr);
+
+    let xButton = tr.querySelector(".close");
 
     xButton.onclick = (e)=> {
 
@@ -128,6 +130,7 @@ function clearInput(form) {
     inputs[0].focus();
 }
 
-function clear(elem) {
+function clearTable(elem) {
     elem.remove();
+    firstTime = false;
 }

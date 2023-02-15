@@ -105,8 +105,6 @@ function insertTable( table, name, weight ) {
 
         let td = e.target.closest("TR");
         td.remove();
-
-        xButton.onclick = null;
     };
 
 }

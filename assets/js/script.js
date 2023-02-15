@@ -102,21 +102,29 @@ function insertTable( table, name, weight ) {
                     <span style="width:20%;" class="close">x</span>
                 </td>`;
 
-
+    // Crea una nuova riga
     let tr = document.createElement("TR");
+
+    // Inserisce nella nuova riga gli elementi, compresa la X di chiusura
     tr.innerHTML = html;
 
     let tbody = table.querySelector("#body");
     tbody.append(tr);
 
+    // Selezione del bottone X
     let xButton = tr.querySelector(".close");
 
+    // Listener sul bottone
     xButton.onclick = (e)=> {
 
         if ( !e.target.classList.contains("close") ) return;
 
+        // Rimuove la riga
         let td = e.target.closest("TR");
         td.remove();
+
+        // Rimuove il listener
+        xButton.onclick = null;
     };
 
 }
@@ -132,5 +140,7 @@ function clearInput(form) {
 
 function clearTable(elem) {
     elem.remove();
+
+    // Fa si che si rigeneri il codice HTML della tabella
     firstTime = false;
 }

@@ -107,10 +107,15 @@
 }
 
 .close {
+
     padding: 2px;
     max-width: 20px;
 
-    border: 1px solid;
+    border: 1px solid transparent;
+    box-shadow: 1px 1px 4px rgb(255, 0, 0);
+
+    color: rgb(255, 0, 0);
+
     border-radius: 5px;
 
     display: flex;
@@ -120,6 +125,12 @@
     text-align: center;
 
     cursor: pointer;
+
+
+}
+
+.close:hover {
+    box-shadow: 1px 1px 8px rgb(255, 0, 0);
 }
 
 /*------------------Table------------------*/

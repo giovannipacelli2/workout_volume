@@ -97,9 +97,11 @@ function insertTable( table, name, weight ) {
 
     let html = `
                 <td>${name}</td>
-                <td class="f-center">
-                    <span style="width:80%;">${weight} kg</span>
-                    <span style="width:20%;" class="close">x</span>
+                <td>
+                    <div class="f-center">
+                        <span style="width:80%;">${weight} kg</span>
+                        <span style="width:20%;" class="close">x</span>
+                    </div>
                 </td>`;
 
     // Crea una nuova riga

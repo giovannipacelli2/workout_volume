@@ -44,6 +44,10 @@
     margin-top: 20px;
     width: 100%;
     min-width: 215px;
+
+    color: rgb(255, 255, 255);
+
+    background-color: #4F4F4F;
 }
 
 .form-input {
@@ -68,6 +72,15 @@
 
 .button {
     padding: 5px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    background-color: #FFFFFF;
+
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #F5F5F5;
 }
 
 /*------------------Table------------------*/
@@ -107,11 +120,8 @@
 
 .close {
 
-    padding: 2px;
+    padding: 0px 0px;
     max-width: 20px;
-
-    border: 1px solid transparent;
-    box-shadow: 1px 1px 4px rgb(255, 0, 0);
 
     color: rgb(255, 0, 0);
 
@@ -129,7 +139,7 @@
 }
 
 .close:hover {
-    box-shadow: 1px 1px 8px rgb(255, 0, 0);
+    filter: blur(0.04em);
 }
 
 /*------------------Table------------------*/

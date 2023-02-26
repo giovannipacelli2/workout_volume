@@ -1,1 +1,0 @@
-{"version":3,"file":"runtime.b4f57cd8e39eae9d664f.hot-update.js","mappings":"iEAAAA,EAAoBC,EAAI,IAAM,sB","sources":["webpack://news/webpack/runtime/getFullHash"],"sourcesContent":["__webpack_require__.h = () => (\"406d9a8c12c5bc6beb05\")"],"names":["__webpack_require__","h"],"sourceRoot":""}

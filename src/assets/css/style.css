@@ -6,6 +6,7 @@
 
 body {
     background-color: #fdfdfd;
+    font-size: 18px;
 }
 
 .f-center {
@@ -97,10 +98,16 @@ body {
 }
 
 .form-input input {
+    font-size: 0.9em;
+
     padding: 2px 6px;
 
     margin-left: 0;
     margin-top: 5px;
+}
+
+.form-input label {
+    font-size: 1em;
 }
 
 .buttons-container {
@@ -116,6 +123,8 @@ body {
 } 
 
 .button {
+    font-size: 0.9em;
+
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #757575;
@@ -189,6 +198,10 @@ body {
 
 /*------------------Table------------------*/
 @media only screen and (min-width: 400px) {
+
+    body {
+        font-size: 16px;
+    }
 
     .border-shadow {
         padding: 15px;

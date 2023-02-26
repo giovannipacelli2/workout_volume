@@ -10,10 +10,12 @@ function WriteVolume() {
 
     for ( let row in volume.repsPercent ) {
 
+        let percent = volume.repsPercent[row];
+
         let html = (
             <tr>
                 <td>{row}</td>
-                <td>{volume.repsPercent[row]}</td>
+                <td>{percent}</td>
             </tr>
         );
 

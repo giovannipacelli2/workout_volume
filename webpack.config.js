@@ -11,8 +11,7 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 //Plugin per l'aggiunta della favicon
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const favicon = './src/assets/img/biceps_008.png';
+/* const FaviconsWebpackPlugin = require('favicons-webpack-plugin'); */
 
 module.exports = (env, argv) => {
   return {
@@ -102,7 +101,7 @@ module.exports = (env, argv) => {
     
     plugins: [
 
-      new FaviconsWebpackPlugin(favicon),
+      /* new FaviconsWebpackPlugin("./src/assets/img/biceps_008.png"), */
 
       new webpack.HotModuleReplacementPlugin(),
 

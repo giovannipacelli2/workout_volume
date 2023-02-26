@@ -1,5 +1,7 @@
 'use strict'
 
+import "../css/style.css";
+
 let form = document.forms.data;
 const tableHtml = `<table id='workout-table'><thead><tr><th>Nome esercizio</th><th>Carico da utilizzare</th></tr></thead><tbody id='body'></tbody></table>`;
 

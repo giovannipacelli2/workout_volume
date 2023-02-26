@@ -20,7 +20,7 @@ body {
 
 
 .border-shadow {
-    padding: 15px;
+    padding: 20px 15px;
 
     border: 1px solid rgb(140, 140, 140);
     border-radius: 5px;
@@ -43,6 +43,12 @@ body {
     align-items: center;
 }
 
+#calcolator h2 {
+    text-align: center;
+    overflow-wrap: break-word;
+    margin: 0 auto;
+}
+
 .info-button {
     position: absolute;
     z-index: 50;
@@ -59,6 +65,7 @@ body {
 
     border-radius: 50px;
     width: 25px;
+    height: 25px;
 
     display: flex;
     justify-content: center;
@@ -84,10 +91,16 @@ body {
 
 .form-input {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .form-input input {
     padding: 2px 6px;
+
+    margin-left: 0;
+    margin-top: 5px;
 }
 
 .buttons-container {
@@ -175,6 +188,21 @@ body {
 }
 
 /*------------------Table------------------*/
+@media only screen and (min-width: 400px) {
+
+    .border-shadow {
+        padding: 15px;
+    }
+
+    .form-input {
+        display: block;
+    }
+
+    .form-input input {
+        margin-left: 5px;
+        margin-top: 0;
+    }
+}
 
 @media only screen and (max-width: 460px) {
 

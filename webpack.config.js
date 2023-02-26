@@ -21,6 +21,9 @@ module.exports = (env, argv) => {
       main: {
         import: path.resolve(__dirname,'src/assets/js/script.js'),
       },
+      info: {
+        import: path.resolve(__dirname,'src/assets/js/write-volume.js'),
+      },
     },
     // Cartella di output per i file compilati e nome del file Javascript
     output: {

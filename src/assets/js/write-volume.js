@@ -1,21 +1,18 @@
 'use strict'
 
-import {volume} from "../module/volume.js";
+import React from "react";
+import ReactDOM  from "react-dom";
 
-let infoBody = document.body.querySelector("#info-body");
+import "../css/info.css"
 
-function writeVolume() {
-    for ( let row in volume.repsPercent ) {
+import Info from "./components/Info.js";
 
-        let html = `
-            <tr>
-                <td>${row}</td>
-                <td>${volume.repsPercent[row]}</td>
-            </tr>
-        `;
+let page = document.body.querySelector("#page");
+let infoBody = document.body.querySelector("#info");
 
-        infoBody.insertAdjacentHTML('beforeend', html);
-    }
-}
+infoBody.onclick = (e)=> {
+    let div = document.createElement("DIV");
+    page.append(div);
 
-writeVolume();
+    ReactDOM.render( <Info/>, div );
+};

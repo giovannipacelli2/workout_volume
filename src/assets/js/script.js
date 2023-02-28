@@ -26,7 +26,7 @@ function calculateWeight(e) {
 
     e.preventDefault();
 
-    let inputs = form.querySelectorAll("#data input");
+    let inputs = document.body.querySelectorAll("#data .not-void");
     
     for ( let input of inputs) {    /* Controlla che tutti i campi siano compliati */
         if ( input.value == "" ){
@@ -37,7 +37,6 @@ function calculateWeight(e) {
     /* Conversione delle stringe di input in numeri*/
     let reps = +form.reps.value;
     let weight = +form.weight.value;
-    let repsToDo = +form.repsToDo.value;
 
     /* Controllo che i tipi forniti siano giusti */
     if ( isNaN(reps) || isNaN(weight) ) {
@@ -47,16 +46,22 @@ function calculateWeight(e) {
 
     let maximal = findMaximal( reps, weight );  /*calcolo del massimale*/
 
-    if (repsToDo > 20) {
-        repsToDo = ">20";   /* Adattamento per numero di reps superiore a 20 */
+    /*--------------------------------------*/
+
+    /* Cerca quale dei due input è stato valorizzato per decidere come procedere*/
+
+    let repsToDo = form.repsToDo.value;
+    let percVolume = form.percVolume.value;
+
+    if ( !repsToDo && !percVolume ) {
+        alert( "Valorizzare 'Reps da fare' o 'Volume applicato' !" );
+        return;
     }
 
-    let vol = volume.getVolume(repsToDo);  /*Preleva il volume di allenamento date le reps da fare*/
+    
+    let vol = findVol(repsToDo, percVolume);
 
-    /* Controlla se il numero di reps rientra nel range giusto */
-    if ( !vol ) {
-        alert("Reps da scheda non corretto");
-        form.repsToDo.focus();
+    if ( isNaN(vol)) {
         return;
     }
 
@@ -73,6 +78,7 @@ function calculateWeight(e) {
     table = document.body.querySelector("#workout-table");
 
     let finalWeight = maximal * vol;
+
 
     /* Inserisce le righe nella tabella indicata */
 
@@ -91,6 +97,44 @@ function findMaximal( reps, weight) {
     let maxMaximal = weight*(1+(0.033*reps));
 
     return (minMaximal + maxMaximal)/2;
+}
+
+function findVol(repsToDo, percVolume) {
+
+    if (repsToDo) {
+
+        repsToDo = +repsToDo;
+
+        if ( isNaN(repsToDo) ) {
+            alert("Compilare correttamente il campo: 'Ripetizioni da fare' !");
+            return;
+        }
+
+        if (repsToDo > 20) {
+            repsToDo = ">20";   /* Adattamento per numero di reps superiore a 20 */
+        }
+    
+        let vol = volume.getVolume(repsToDo);  /*Preleva il volume di allenamento date le reps da fare*/
+    
+        /* Controlla se il numero di reps rientra nel range giusto */
+        if ( !vol ) {
+            alert("Reps da scheda non corretto");
+            form.repsToDo.focus();
+            return;
+        }
+
+        return vol;
+    }
+    else if (percVolume) {
+        percVolume = +percVolume;
+
+        if ( isNaN(percVolume ) ) {
+            alert("Compilare correttamente il campo: 'Volume applicato' !");
+            return;
+        }
+
+        return (percVolume/100);
+    }
 }
 
 

@@ -62,7 +62,6 @@ body {
     padding: 2px;
 
     top:10px;
-    right: 10px;
 
     border-radius: 50px;
     width: 25px;
@@ -74,6 +73,14 @@ body {
 
     cursor: pointer;
 
+}
+
+#info {
+    right: 40px;
+}
+
+#vol {
+    right: 10px;
 }
 
 /*------------------Form-------------------*/
@@ -197,7 +204,7 @@ body {
 }
 
 /*------------------Table------------------*/
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 440px) {
 
     body {
         font-size: 16px;
@@ -237,6 +244,6 @@ body {
         width: 500px;
     }
     .border-shadow {
-        padding: 15px 60px;
+        padding: 15px 50px;
     }
 }

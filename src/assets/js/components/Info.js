@@ -2,45 +2,22 @@
 
 import React from "react";
 
-import {volume} from "../../module/volume.js";
-
-function WriteVolume() {
-
-    let rows = [];
-
-    for ( let row in volume.repsPercent ) {
-
-        let percent = volume.repsPercent[row];
-
-        let html = (
-            <tr>
-                <td>{row}</td>
-                <td>{percent}</td>
-            </tr>
-        );
-
-        rows.push(html);
-    }
-
-    return rows;
-}
 
 export default function Info() {
     return (
-        <div id="info-page" >
-            <div id="info-container" >
-                <div className="close exit">x</div>
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>Reps</th>
-                            <th>Volume %</th>
-                        </tr>
-                    </thead>
-                    <tbody id="info-body">
-                        <WriteVolume/>
-                    </tbody>
-                </table>
+        <div id="info-page" className="window-page">
+            <div id="info-container" className="window-container">
+                <div className="close close-window" id ="exit-page-info">x</div>
+                <div className="how-to-use">
+                    <h3>Effettuare il test: max reps con max carico</h3>
+
+                    <ul>
+                        <li>Inserire le reps eseguite ed il carico utilizzato</li>
+                        <li>Scegliere almeno una delle opzioni contrassegnate con *</li>
+                    </ul>
+
+                    
+                </div>
             </div>
 
         </div>

@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-#info-page {
+.window-page {
   position: absolute;
   z-index: 1000;
   top: 0;
@@ -20,7 +20,7 @@
   backdrop-filter: blur(2px);
 }
 
-#info-container {
+.window-container {
   position: relative;
 
     background-color: rgb(214, 214, 214);
@@ -71,7 +71,6 @@
 }
 
 .close {
-
   padding: 0px 0px;
   max-width: 20px;
 
@@ -86,18 +85,35 @@
   text-align: center;
 
   cursor: pointer;
-}
+} 
 
-.exit {
+.close-window {
   position: absolute;
   top: 1em;
   right: 1em;
 
   font-size: 1.5em;
 }
+/*-------------INFO-------------*/
+
+.how-to-use {
+  height: 70%;
+  font-size: 1.2em;
+  padding: 1em;
+}
+
+.how-to-use li{
+  margin-left: 1em;
+}
+
+.how-to-use ul>li,
+.how-to-use h3{
+  overflow-wrap: break-word;
+  margin-bottom: 0.8em;
+}
 
 @media only screen and ( min-width: 320px) {
-  #info-container {
+  .window-container {
     width: 300px;
     height: 500px;
   }

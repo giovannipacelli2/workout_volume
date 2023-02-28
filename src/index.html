@@ -14,26 +14,31 @@
 
             <form id="data" name="data" class="border-shadow">
 
-                <div class="info-button" id="info">i</div>
+                <div class="info-button" id="info">?</div>
+                <div class="info-button" id="vol">v</div>
 
                 <div class="form-input">
                     <label for="exercise">Nome esercizio</label>
-                    <input type="text" name="exercise" id="exercise" placeholder="Es. panca piana" autocomplete="off">
+                    <input type="text" name="exercise" id="exercise"  class="not-void" placeholder="Es. panca piana" autocomplete="off">
                 </div>
 
                 <div class="form-input">
                     <label for="reps">Nr ripetizioni eseguite</label>
-                    <input type="text" name="reps" id="reps" placeholder="Es. 7" autocomplete="off">
+                    <input type="text" name="reps" id="reps" class="not-void" placeholder="Es. 7" autocomplete="off">
                 </div>
 
                 <div class="form-input">
                     <label for="weight">Carico utilizzato (kg)</label>
-                    <input type="text" name="weight" id="weight" placeholder="Es. 70" autocomplete="off">
+                    <input type="text" name="weight" id="weight" class="not-void" placeholder="Es. 70" autocomplete="off">
                 </div>
 
                 <div class="form-input">
-                    <label for="repsToDo">Ripetizioni da fare (scheda)</label>
+                    <label for="repsToDo">*Ripetizioni da fare (generico)</label>
                     <input type="text" name="repsToDo" id="repsToDo" placeholder="Es. 10" autocomplete="off">
+                </div>
+                <div class="form-input">
+                    <label for="percVolume">*Volume applicato ( % )</label>
+                    <input type="text" name="percVolume" id="percVolume" placeholder="Es. 87.5" autocomplete="off">
                 </div>
                 <div class="buttons-container">
                     <button type="submit" class="button" id="add">Add</button>

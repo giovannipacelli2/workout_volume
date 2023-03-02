@@ -20,6 +20,21 @@ let firstTime = false;
 
 import {volume} from '../module/volume.js'
 
+let repsToDo = form.repsToDo;
+let percVolume = form.percVolume;
+
+repsToDo.addEventListener("input", (e)=>{ oneInputOnly(repsToDo, percVolume) });
+percVolume.addEventListener("input", (e)=>{ oneInputOnly(percVolume, repsToDo); })
+
+function oneInputOnly( fOn, fOff ) {
+    if ( fOn.value !== "" ) {
+        fOff.disabled = true;
+    }
+    else if ( fOn.value == "" ) {
+        fOff.disabled = false;
+    }
+}
+
 form.addEventListener( "submit", calculateWeight );
 
 function calculateWeight(e) {

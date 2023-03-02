@@ -197,6 +197,11 @@ function clearInput(form) {
 
     for ( let input of inputs ) {
         input.value = "";
+
+        if ( !input.classList.contains("not-void") ) {
+            input.disabled = false;
+        }
+
     }
     inputs[0].focus();
 }

@@ -203,7 +203,7 @@ function clearInput(form) {
         }
 
     }
-    inputs[0].focus();
+    /* inputs[0].focus(); */
 }
 
 function clearTable(elem) {

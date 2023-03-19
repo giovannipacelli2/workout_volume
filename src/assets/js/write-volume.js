@@ -1,7 +1,7 @@
 'use strict'
 
 import React from "react";
-import ReactDOM  from "react-dom";
+import * as ReactDOM  from "react-dom/client";
 
 import "../css/info.css"
 
@@ -13,27 +13,21 @@ let page = document.body.querySelector("#page");
 let volBody = document.body.querySelector("#vol");
 let infoBody = document.body.querySelector("#info");
 
-let firstTimeV = true;
-let firstTimeI = true;
+let div = document.createElement("DIV");
+page.append(div);
+
+let root = null;
 
 volBody.onclick = (e)=> {
-    let div = document.createElement("DIV");
-    page.append(div);
+    root = ReactDOM.createRoot(div);
 
-    ReactDOM.render( <Vol/>, div );
-    firstTimeV = false;
-
-    volBody.onclick = null;
+    root.render( <Vol/> );
 };
 
 infoBody.onclick = (e)=> {
-    let div = document.createElement("DIV");
-    page.append(div);
+    root = ReactDOM.createRoot(div);
 
-    ReactDOM.render( <Info/>, div );
-    firstTimeI = false;
-
-    infoBody.onclick = null;
+    root.render( <Info/> );
 };
 
 page.addEventListener("click", closeInfo);
@@ -42,21 +36,11 @@ function closeInfo(e) {
     let target = e.target;
 
     if ( target.id === "exit-page-vol" ) {
-        let vol = document.body.querySelector("#vol-page");
-        vol.style.display = "none";
-    }
-    if ( target.id === "vol" && !firstTimeV ) {
-        let vol = document.body.querySelector("#vol-page");
-        vol.style.display = "";
+        root.unmount( <Vol/> );
     }
 
     if ( target.id === "exit-page-info" ) {
-        let info = document.body.querySelector("#info-page");
-        info.style.display = "none";
-    }
-    if ( target.id === "info" && !firstTimeI ) {
-        let info = document.body.querySelector("#info-page");
-        info.style.display = "";
+        root.unmount( <Info/> );
     }
 
     else return;
